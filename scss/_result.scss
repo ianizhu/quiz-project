@@ -1,0 +1,151 @@
+.result__section {
+  background: url("../bg.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+  width: 100%;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  transform: scale(0);
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+
+  .result__container {
+    position: absolute;
+    width: 29%;
+    height: 90%;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: $quiz-box;
+    border: 2px solid $border-color;
+    border-radius: 6px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border: 2px solid $border-color;
+      border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+      left: 0.1%;
+      right: 0.2%;
+      top: 0.1%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        $question-color,
+        transparent
+      );
+      text-shadow: 1px 1px 1px $ash-gray;
+      padding: 0 4rem;
+      color: $outer-space;
+      text-shadow: 1px 0 1px $ash-gray;
+    }
+
+    .percentage__container {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px 0 40px;
+
+      .circular__progress {
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+
+        background: conic-gradient(
+          $dark-pink 3.6deg,
+          rgba(255, 255, 255, 0.1) 0deg
+        );
+        border-radius: 50%;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 250px;
+          height: 250px;
+          border-radius: 50%;
+
+          background: $question-color;
+        }
+
+        .progress__value {
+          position: relative;
+          font-size: 45px;
+          font-weight: 600;
+          color: $dark-pink;
+          text-shadow: 1px 0 1px $outer-space;
+        }
+      }
+
+      .score__text {
+        font-size: 26px;
+        font-weight: 600;
+        margin-top: 20px;
+        color: $outer-space;
+        text-shadow: 1px 0 1px $ash-gray;
+      }
+    }
+    .result__buttons {
+      display: flex;
+
+      .tryAgain__btn,
+      .mainPage__btn {
+        z-index: 100;
+        width: 160px;
+        height: 70px;
+        border: 4px solid $cherry-blossom-pink;
+        text-shadow: 1px 0 1px $outer-space;
+        border-radius: 6px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 0 20px 20px;
+        transition: 0.3s ease-in;
+      }
+
+      .mainPage__btn {
+        background: $white;
+        color: $dark-pink;
+        text-shadow: 1px 0 1px $dark-pink;
+
+        &:hover {
+          background: $dark-pink;
+          color: $white;
+        }
+      }
+
+      .tryAgain__btn {
+        background: $cherry-blossom-pink;
+        color: $white;
+        text-shadow: 1px 0 1px $outer-space;
+        font-weight: 600;
+
+        &:hover {
+          background: $dark-pink;
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,593 @@
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+a, a:link, a:visited {
+  /* color: inherit; */
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a:hover {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+/* m-plus-rounded-1c-regular - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/m-plus-rounded-1c-v16-cyrillic_latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* m-plus-rounded-1c-500 - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/m-plus-rounded-1c-v16-cyrillic_latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* m-plus-rounded-1c-700 - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/m-plus-rounded-1c-v16-cyrillic_latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* m-plus-rounded-1c-800 - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/m-plus-rounded-1c-v16-cyrillic_latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* m-plus-rounded-1c-900 - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/m-plus-rounded-1c-v16-cyrillic_latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+body {
+  font-family: "M PLUS Rounded 1c", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.main_content {
+  min-height: 100vh;
+}
+.main_content .main__background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b0c4b1;
+}
+.main_content .main__background.active {
+  filter: blur(15px);
+  pointer-events: none;
+}
+.main_content .main__background .link-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+.main_content .main__background .link-container .link {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f7e1d7;
+  transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
+  line-height: 1rem;
+  transition: 0.2s ease-in;
+}
+.main_content .main__background .link-container span:hover::before {
+  content: "";
+  position: absolute;
+  border: 10px solid #f7e1d7;
+  height: 10px;
+  left: -35px;
+  vertical-align: baseline;
+  border-radius: 50%;
+}
+.main_content .main__background .link-container span:hover::after {
+  content: "";
+  position: absolute;
+  border: 10px solid #f7e1d7;
+  height: 10px;
+  right: -35px;
+  vertical-align: baseline;
+  border-radius: 50%;
+}
+.main_content .main__background .link-container .link:hover {
+  color: #4a5759;
+  transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
+  font-weight: 900;
+}
+.main_content .main__background .link-container .link::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  top: 0;
+  right: -95%;
+  background-color: #edafb8;
+  -webkit-clip-path: circle(0% at 50% 50%);
+          clip-path: circle(0% at 50% 50%);
+  transition: -webkit-clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1), -webkit-clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.main_content .main__background .link-container .link:hover::before {
+  -webkit-clip-path: circle(100% at 50% 50%);
+          clip-path: circle(100% at 50% 50%);
+}
+.main_content .main__background .link-container .link::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 250%;
+  height: 100%;
+  top: 0;
+  right: -75%;
+  background-color: #f7e1d7;
+  -webkit-clip-path: polygon(40% 0%, 60% 0%, 60% 0%, 40% 0%, 40% 100%, 60% 100%, 60% 100%, 40% 100%);
+          clip-path: polygon(40% 0%, 60% 0%, 60% 0%, 40% 0%, 40% 100%, 60% 100%, 60% 100%, 40% 100%);
+  transition: -webkit-clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1), -webkit-clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.main_content .main__background .link-container .link:hover::after {
+  -webkit-clip-path: polygon(40% 10%, 60% 10%, 60% 35%, 40% 35%, 40% 90%, 60% 90%, 60% 65%, 40% 65%);
+          clip-path: polygon(40% 10%, 60% 10%, 60% 35%, 40% 35%, 40% 90%, 60% 90%, 60% 65%, 40% 65%);
+}
+
+.popup__info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 500px;
+  height: 80%;
+  background: #fff;
+  border-radius: 2% 6% 5% 4%/1% 1% 2% 4%;
+  border: 3px solid rgba(51, 51, 51, 0.5843137255);
+  padding: 10px 25px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+}
+.popup__info.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup__info h2 {
+  font-size: 3rem;
+  color: #edafb8;
+  text-shadow: 1px 1px 1px rgb(196, 114, 126);
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #4a5759;
+}
+.popup__info .info {
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #4a5759;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+.popup__info .btn__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 15px 0 7px;
+}
+.popup__info .btn__group .info__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 45px;
+  border: 3px solid #edafb8;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 0.2s ease-in;
+}
+.popup__info .btn__group .continue-btn {
+  background: transparent;
+  color: rgb(196, 114, 126);
+}
+.popup__info .btn__group .continue-btn:hover {
+  background: rgb(196, 114, 126);
+  color: #fff;
+}
+.popup__info .btn__group .exit-btn {
+  background: #edafb8;
+  color: #fff;
+}
+.popup__info .btn__group .exit-btn:hover {
+  background: rgb(196, 114, 126);
+  color: #fff;
+}
+
+.quiz-section__container {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background: url("../bg.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: scale(0, 0);
+  animation: animate 1s ease-in forwards 0.2s;
+}
+@keyframes animate {
+  0% {
+    transform: scale(0, 0.005);
+  }
+  50% {
+    transform: scaleY(0.005);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.quiz-section__container .quiz__section {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quiz-section__container .quiz__section .quiz__container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7137254902);
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 20px 30px;
+  border: 2px solid rgba(51, 51, 51, 0.5843137255);
+  border-radius: 2% 6% 5% 4%/1% 1% 2% 4%;
+  transform: scale(0.9);
+  z-index: 1000;
+}
+.quiz-section__container .quiz__section .quiz__container .border__container {
+  position: absolute;
+  border: 2px solid rgba(51, 51, 51, 0.5843137255);
+  border-radius: 1% 1% 2% 4%/2% 6% 5% 4%;
+  height: 100%;
+  width: 100%;
+  left: 0.1%;
+  right: 0.2%;
+  top: 0.1%;
+}
+.quiz-section__container .quiz__section .quiz__container h1 {
+  margin-top: 0.5rem;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: -1rem;
+  background: linear-gradient(180deg, transparent, rgba(253, 243, 160, 0.908), transparent);
+  text-shadow: 1px 1px 1px #b0c4b1;
+}
+.quiz-section__container .quiz__section .quiz__container .quiz__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 8px 20px 8px;
+  margin-bottom: 25px;
+  border-radius: 0 0 5% 4%/1% 1% 2% 4%;
+  border-bottom: 3px solid rgba(51, 51, 51, 0.5843137255);
+}
+.quiz-section__container .quiz__section .quiz__container .quiz__header span {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.quiz-section__container .quiz__section .quiz__container .quiz__header .header-score {
+  padding: 7px;
+}
+.quiz-section__container .quiz__section .quiz__container .option-list {
+  height: 305px;
+}
+.quiz-section__container .quiz__section .quiz__container .question__text-container {
+  width: 95%;
+  height: 75px;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.quiz-section__container .quiz__section .quiz__container .question__text-container .question-text {
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(100deg, transparent, rgba(190, 225, 191, 0.719), transparent);
+  border-radius: 100px;
+}
+.quiz-section__container .quiz__section .quiz__container .option {
+  width: 99%;
+  padding: 1rem 0.3rem;
+  background: rgba(227, 219, 215, 0.285);
+  border: 1px solid #b0c4b1;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 15px 4px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.quiz-section__container .quiz__section .quiz__container .option:hover {
+  background: rgb(150, 209, 153);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.quiz-section__container .quiz__section .quiz__container .option.correct {
+  color: #0bda57;
+  border: 4px solid #0bda57;
+  font-weight: 600;
+}
+.quiz-section__container .quiz__section .quiz__container .option.incorrect {
+  color: #b40b0b;
+  border: 4px solid #b40b0b;
+  font-weight: 600;
+}
+.quiz-section__container .quiz__section .quiz__container .divider {
+  display: flex;
+}
+.quiz-section__container .quiz__section .quiz__container .divider:before, .quiz-section__container .quiz__section .quiz__container .divider:after {
+  content: "";
+  flex: 1;
+}
+.quiz-section__container .quiz__section .quiz__container .line {
+  align-items: center;
+  margin: 1.2rem -0.5em;
+}
+.quiz-section__container .quiz__section .quiz__container .line:before, .quiz-section__container .quiz__section .quiz__container .line:after {
+  height: 10px;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+}
+.quiz-section__container .quiz__section .quiz__container .double-razor:before, .quiz-section__container .quiz__section .quiz__container .double-razor:after {
+  height: 5px;
+  box-shadow: 0 -0.5px 0 black, 0 0.5px 0 black;
+  border-width: 0;
+}
+.quiz-section__container .quiz__section .quiz__container .fa-brain {
+  font-size: 2rem;
+  color: #4a5759;
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: end;
+  padding-right: 1rem;
+}
+.quiz-footer .next-btn {
+  width: 9rem;
+  height: 2.8rem;
+  margin-top: -0.5rem;
+  background: #edafb8;
+  border: 5px solid #edafb8;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  color: #4a5759;
+  font-weight: 600;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+}
+.quiz-footer .next-btn.active {
+  pointer-events: auto;
+  background: #edafb8;
+  border-color: rgb(196, 114, 126);
+  color: #000000;
+}
+.quiz-footer .next-btn.active:hover {
+  background: rgb(196, 114, 126);
+  border-color: rgb(196, 114, 126);
+  color: #000000;
+}
+
+.result__section {
+  background: url("../bg.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  transform: scale(0);
+}
+.result__section.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.result__section .result__container {
+  position: absolute;
+  width: 29%;
+  height: 90%;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7137254902);
+  border: 2px solid rgba(51, 51, 51, 0.5843137255);
+  border-radius: 6px;
+}
+.result__section .result__container::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 2px solid rgba(51, 51, 51, 0.5843137255);
+  border-radius: 1% 1% 2% 4%/2% 6% 5% 4%;
+  left: 0.1%;
+  right: 0.2%;
+  top: 0.1%;
+}
+.result__section .result__container h2 {
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, transparent, rgba(253, 243, 160, 0.908), transparent);
+  text-shadow: 1px 1px 1px #b0c4b1;
+  padding: 0 4rem;
+  color: #4a5759;
+  text-shadow: 1px 0 1px #b0c4b1;
+}
+.result__section .result__container .percentage__container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 40px;
+}
+.result__section .result__container .percentage__container .circular__progress {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(rgb(196, 114, 126) 3.6deg, rgba(255, 255, 255, 0.1) 0deg);
+  border-radius: 50%;
+}
+.result__section .result__container .percentage__container .circular__progress::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(253, 243, 160, 0.908);
+}
+.result__section .result__container .percentage__container .circular__progress .progress__value {
+  position: relative;
+  font-size: 45px;
+  font-weight: 600;
+  color: rgb(196, 114, 126);
+  text-shadow: 1px 0 1px #4a5759;
+}
+.result__section .result__container .percentage__container .score__text {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #4a5759;
+  text-shadow: 1px 0 1px #b0c4b1;
+}
+.result__section .result__container .result__buttons {
+  display: flex;
+}
+.result__section .result__container .result__buttons .tryAgain__btn,
+.result__section .result__container .result__buttons .mainPage__btn {
+  z-index: 100;
+  width: 160px;
+  height: 70px;
+  border: 4px solid #edafb8;
+  text-shadow: 1px 0 1px #4a5759;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 20px 20px;
+  transition: 0.3s ease-in;
+}
+.result__section .result__container .result__buttons .mainPage__btn {
+  background: #fff;
+  color: rgb(196, 114, 126);
+  text-shadow: 1px 0 1px rgb(196, 114, 126);
+}
+.result__section .result__container .result__buttons .mainPage__btn:hover {
+  background: rgb(196, 114, 126);
+  color: #fff;
+}
+.result__section .result__container .result__buttons .tryAgain__btn {
+  background: #edafb8;
+  color: #fff;
+  text-shadow: 1px 0 1px #4a5759;
+  font-weight: 600;
+}
+.result__section .result__container .result__buttons .tryAgain__btn:hover {
+  background: rgb(196, 114, 126);
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

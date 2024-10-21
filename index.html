@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Квиз</title>
+    <script
+      src="https://kit.fontawesome.com/2f982d2680.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="main_content">
+      <div class="main__background">
+        <div class="link-container">
+          <a class="link" id="startBtn" href="#"><span>Играть</span></a>
+        </div>
+      </div>
+      <section class="popup__info" id="popUp">
+        <h2>Правила квиза</h2>
+        <span class="info"
+          >1. Квиз - это интеллектуальная командная викторина (от англ. "quiz" -
+          викторина, или от рус. Виктор + Ирина)</span
+        >
+        <span class="info"
+          >2. Но этот квиз можно проходить в одиночку, он не обидится...</span
+        >
+        <span class="info"
+          >3. Баллы начисляются за верные ответы на вопросы. По 1 баллу за
+          ответ.</span
+        >
+        <span class="info"
+          >4. Гуглить и яндаксить запрещается (пока мы наблюдаем за вами через
+          веб-камеру <i class="fa-regular fa-face-grin-wink"></i>).</span
+        >
+        <span class="info"
+          >5. Вы являетесь победителем, если набрали больше 80% правильных
+          ответов. Или если не набрали. Для нас Вы победитель по жизни.<i
+            class="fa-solid fa-trophy"
+          ></i
+        ></span>
+
+        <div class="btn__group">
+          <button class="info__btn exit-btn" id="exitBtn">Вернуться</button>
+          <a href="#" class="info__btn continue-btn" id="continueBtn">Начать</a>
+        </div>
+      </section>
+
+      <div class="quiz-section__container">
+        <section class="quiz__section">
+          <div class="quiz__container">
+            <div class="border__container">
+              <div class="quiz__content">
+                <h1>Квиз!</h1>
+                <div class="quiz__header">
+                  <span class="question__total" id="total">
+                    1 из 10 Вопросов
+                  </span>
+                  <span class="header-score"> Баллы: 0 </span>
+                </div>
+
+                <div class="question__text-container">
+                  <h2 class="question-text">
+                    На кого бежит зверь в известной пословице?
+                  </h2>
+                </div>
+
+                <div class="option-list">
+                  <!-- <div class="option">
+                        <span>А. На вдовца</span>
+                    </div>
+                    <div class="option">
+                        <span>Б. На ловца</span>
+                    </div>
+                    <div class="option">
+                        <span>В. На стрельца</span>
+                    </div>
+                    <div class="option">
+                        <span>Г. Наживца</span>
+                    </div>  -->
+                </div>
+                <div class="divider line double-razor">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <div class="quiz-footer">
+                  <button class="next-btn" id="nextBtn">Далее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="result__section">
+        <div class="result__container">
+          <h2>Результат:</h2>
+          <div class="percentage__container">
+            <div class="circular__progress">
+              <span class="progress__value">0%</span>
+            </div>
+
+            <span class="score__text">Вы набрали 0 баллов из 10</span>
+          </div>
+
+          <div class="result__buttons">
+            <button class="mainPage__btn">На главную страницу</button>
+            <button class="tryAgain__btn">Попробовать снова</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
