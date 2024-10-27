@@ -21,6 +21,67 @@ body {
       pointer-events: none;
     }
 
+
+    .local__result {
+      // display: none;
+      position: absolute;
+      width: 23%;
+      height: 10%;
+      top: 4%;
+      left: 75%;
+      border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+      border: 2px solid #33333395;
+      background-color: $timberwolf;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 98%;
+        width: 99%;
+        border: 2px solid $border-color;
+        border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+        left: 0.3%;
+        right: 0.2%;
+        top: 0.9%;
+      }
+
+      @media screen and (max-width: 1255px) {
+        height: 12%;
+        left: 72%;
+        width: 25%;
+    }
+      @media screen and (max-width: 792px) {
+        height: 11%;
+        left: 70%;
+        width: 27%;
+    }
+    @media screen and (max-width: 726px) {
+        height: 11%;
+        left: 70%;
+        width: 27%;
+    }
+
+
+      p {
+        margin: 20px 0;
+        padding: 0 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $outer-space;
+
+        @media screen and (max-width: 792px) {
+          margin-top: 0.9rem;
+          font-size: 0.9rem;
+        }
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+    }
+  
+
     .link-container {
       max-width: 600px;
       display: flex;
@@ -166,7 +227,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    padding: 15px 0 7px;
+    padding: 0.5rem 0 1.3rem;
 
     .info__btn {
       display: inline-flex;
@@ -204,60 +265,4 @@ body {
   }
 }
 
-// .container {
-//     display: flex;
-//     height: 100vh;
-//     width: 200%;
 
-//     .quiz__section {
-//         position: relative;
-//         left: -50%;
-//         width: 100%;
-//         background: #09001d;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         z-index: 100;
-
-//         transition: 0.7s ease-in-out;
-//         transition-delay: 0.25s;
-
-//         &.active {
-//             left: 0;
-//         }
-
-//         .quiz__box {
-//             position: relative;
-//             width: 500px;
-//             display: flex;
-//             flex-direction: column;
-//             padding: 20px 30px;
-//             background: transparent;
-//             border: 2px solid #c40094;
-//             border-radius: 6px;
-//             opacity: 0;
-//             pointer-events: none;
-//             transform: scale(0.9);
-
-//             transition: 0.3s ease;
-//             transition-delay: 0s;
-
-//             &.active {
-//                 opacity: 1;
-//                 pointer-events: auto;
-//                 transform: scale(1);
-//                 transition: 1s ease;
-//                 transition-delay: 1s;
-//             }
-
-//             .quiz__header {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 align-items: center;
-//                 padding: 20px 0;
-//                 border-bottom: 2px solid #c40094;
-//                 margin-bottom: 30px;
-//             }
-//         }
-//     }
-// }

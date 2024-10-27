@@ -19,7 +19,7 @@
 
   .result__container {
     position: absolute;
-    width: 29%;
+    width: 32%;
     height: 90%;
     display: flex;
     top: 50%;
@@ -32,6 +32,23 @@
     background-color: $quiz-box;
     border: 2px solid $border-color;
     border-radius: 6px;
+
+
+    @media screen and (max-width: 1065px) {
+      height: 75%;
+    }
+
+    @media screen and (max-width: 925px) {
+      height: 65%;
+    }
+
+    @media screen and (max-width: 799px) {
+      height: 57%;
+    }
+
+    @media screen and (max-width: 667px) {
+      height: 47%;
+    }
 
     &::after {
       content: "";
@@ -57,6 +74,23 @@
       padding: 0 4rem;
       color: $outer-space;
       text-shadow: 1px 0 1px $ash-gray;
+
+      @media screen and (max-width: 1065px) {
+        font-size: 1.6rem;
+      }
+
+      
+      @media screen and (max-width: 925px) {
+        font-size: 1.4rem;
+      }
+
+      @media screen and (max-width: 799px) {
+        font-size: 1.3rem;
+      }
+
+      @media screen and (max-width: 667px) {
+        font-size: 1.2rem;
+      }
     }
 
     .percentage__container {
@@ -64,7 +98,7 @@
       width: 100%;
       flex-direction: column;
       align-items: center;
-      margin: 40px 0 40px;
+      margin: 2.5rem 0 2.5rem;
 
       .circular__progress {
         position: relative;
@@ -80,6 +114,31 @@
         );
         border-radius: 50%;
 
+        @media screen and (max-width: 1300px) {
+          width: 250px;
+          height: 250px;
+        }
+
+        @media screen and (max-width: 1065px) {
+          width: 200px;
+          height: 200px;
+        }
+
+        @media screen and (max-width: 925px) {
+          width: 150px;
+          height: 150px;
+        }
+
+        @media screen and (max-width: 799px) {
+          width: 100px;
+          height: 100px;
+        }
+
+        @media screen and (max-width: 667px) {
+          width: 50px;
+          height: 50px;
+        }
+
         &::before {
           content: "";
           position: absolute;
@@ -88,23 +147,88 @@
           border-radius: 50%;
 
           background: $question-color;
+
+          @media screen and (max-width: 1300px) {
+            width: 200px;
+            height: 200px;
+          }
+
+          @media screen and (max-width: 1065px) {
+            width: 150px;
+            height: 150px;
+          }
+
+          @media screen and (max-width: 925px) {
+            width: 100px;
+            height: 100px;
+          }
+
+          @media screen and (max-width: 799px) {
+            background: transparent;
+          }
+  
         }
 
         .progress__value {
           position: relative;
-          font-size: 45px;
+          font-size: 2.8rem;
           font-weight: 600;
           color: $dark-pink;
           text-shadow: 1px 0 1px $outer-space;
+
+          @media screen and (max-width: 1300px) {
+            font-size: 2.4rem;
+          }
+
+          @media screen and (max-width: 1065px) {
+            font-size: 2.1rem;
+          }
+
+          @media screen and (max-width: 925px) {
+            font-size: 1.9rem;
+          }
+
+          @media screen and (max-width: 799px) {
+            font-size: 1.6rem;
+            color: $ash-gray;
+          }
+
+          @media screen and (max-width: 667px) {
+            font-size: 1.1rem;
+          }
         }
       }
 
       .score__text {
-        font-size: 26px;
+        font-size: 1.5rem;
         font-weight: 600;
         margin-top: 20px;
         color: $outer-space;
         text-shadow: 1px 0 1px $ash-gray;
+
+        @media screen and (max-width: 1300px) {
+          font-size: 1.3rem;
+        }
+
+        @media screen and (max-width: 1120px) {
+          font-size: 1.2rem;
+        }
+
+        @media screen and (max-width: 1065px) {
+          font-size: 1.1rem;
+        }
+
+        @media screen and (max-width: 970px) {
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: 896px) {
+          font-size: 0.8rem;
+        }
+
+        @media screen and (max-width: 747px) {
+          font-size: 0.5rem;
+        }
       }
     }
     .result__buttons {
@@ -122,6 +246,40 @@
         font-weight: 500;
         margin: 0 20px 20px;
         transition: 0.3s ease-in;
+
+        @media screen and (max-width: 1300px) {
+          width: 130px;
+          height: 60px;
+          font-size: 1.1rem;
+        }
+
+        @media screen and (max-width: 1065px) {
+          width: 110px;
+          height: 55px;
+          font-size: 1rem;
+          margin: 0 20px 20px;
+        }
+
+        @media screen and (max-width: 925px) {
+          width: 95px;
+          height: 47px;
+          font-size: 0.8rem;
+          margin: 0 1rem 1rem;
+        }
+
+        @media screen and (max-width: 799px) {
+          width: 85px;
+          height: 39px;
+          font-size: 0.6rem;
+          margin: 0 0.5rem 0.5rem;
+        }
+
+        @media screen and (max-width: 667px) {
+          width: 75px;
+          height: 25px;
+          font-size: 0.4rem;
+          margin: 0 0.3rem 0.5rem;
+        }
       }
 
       .mainPage__btn {

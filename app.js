@@ -8,7 +8,7 @@ let questions = [
   {
     num: 2,
     question:
-      "Что из перечисленного является разновидностью компьютерной игры, а не жанром песен Винни-Пуха?",
+      "Что является жанром компьютерной игры, а не песен Винни-Пуха?",
     answer: "А. Бродилка",
     options: ["А. Бродилка", "Б. Вопилка", "В. Кричалка", "Г. Сопелка"],
   },
@@ -95,19 +95,35 @@ const popupInfo = document.getElementById("popUp");
 const main = document.querySelector(".main__background");
 const quizSection = document.querySelector(".quiz-section__container");
 const resultSection = document.querySelector(".result__section");
+let localResult = document.getElementById('localResult');
+let previousResultBox = document.querySelector('.local__result');
+
+const audio = new Audio("/audio/click.mp3");
+const audioClick = new Audio("/audio/btn-click.mp3");
 
 let counter = 0;
 let num = 1;
 let userScore = 0;
 
+localResult = localStorage.getItem("currentScore");
+
+if (localResult == null) { 
+  localResult = 0;
+  mainScoreText.innerHTML = `Прошлый результат: <span>${localResult}</span>`;
+} else {
+  mainScoreText.innerHTML = `Прошлый результат: <span>${localResult}</span> баллов из <span>${questions.length}</span>`;
+}
+
 startBtn.onclick = () => {
   popupInfo.classList.add("active");
   main.classList.add("active");
+  audioClick.play();
 };
 
 exitBtn.onclick = () => {
   popupInfo.classList.remove("active");
   main.classList.remove("active");
+  audioClick.play();
 };
 
 continueBtn.onclick = () => {
@@ -115,6 +131,7 @@ continueBtn.onclick = () => {
   main.classList.remove("active");
   main.style.display = "none";
   quizSection.style.display = "flex";
+  audioClick.play();
 
   nextQuestion(0);
   questionCounter(1);
@@ -135,6 +152,7 @@ nextBtn.onclick = () => {
     console.log("completed");
     showResultSection();
   }
+  audioClick.play();
 };
 
 const tryAgainBtn = document.querySelector(".tryAgain__btn");
@@ -144,6 +162,7 @@ tryAgainBtn.onclick = () => {
   resultSection.classList.remove("active");
   quizSection.style.display = "flex";
   nextBtn.classList.remove("active");
+  audioClick.play();
 
   counter = 0;
   num = 1;
@@ -152,7 +171,10 @@ tryAgainBtn.onclick = () => {
   questionCounter(num);
 };
 
+
 mainPageBtn.onclick = () => {
+  audioClick.play();
+  setTimeout(() => {
   main.style.display = "flex";
   quizSection.style.display = "none";
   resultSection.classList.remove("active");
@@ -162,7 +184,10 @@ mainPageBtn.onclick = () => {
   nextQuestion(counter);
   questionCounter(num);
   score();
+  location.reload(false);
+}, 900);
 };
+
 
 function nextQuestion(index) {
   const questionText = document.querySelector(".question-text");
@@ -177,8 +202,12 @@ function nextQuestion(index) {
   const option = document.querySelectorAll(".option");
 
   for (let i = 0; i < option.length; i++) {
+    option[i].addEventListener('click', () => {
+      audio.play();
+    });
     option[i].setAttribute("onclick", "userSelect(this)");
   }
+
 }
 
 function userSelect(answer) {
@@ -186,20 +215,22 @@ function userSelect(answer) {
   let correctAnswer = questions[counter].answer;
   let allAnswers = questionList.children;
   if (selectedAnswer == correctAnswer) {
-    console.log("correct answer");
     answer.classList.add("correct");
     userScore++;
     score();
   } else {
-    console.log("answer is wrong");
     answer.classList.add("incorrect");
   }
 
-  for (let i = 0; i < allAnswers.length; i++) {
-    if (allAnswers[i].innerText == correctAnswer) {
-      allAnswers[i].setAttribute("class", "option correct");
-    }
+  if(localStorage) {
+    localStorage.setItem("currentScore", userScore);
   }
+
+  // for (let i = 0; i < allAnswers.length; i++) {
+  //   if (allAnswers[i].innerText == correctAnswer) {
+  //     allAnswers[i].setAttribute("class", "option correct");
+  //   }
+  // }
 
   for (let i = 0; i < allAnswers.length; i++) {
     allAnswers[i].style.pointerEvents = "none";
@@ -242,3 +273,4 @@ function showResultSection() {
     }
   }, speed);
 }
+
